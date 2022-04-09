@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var StateEnum = /*#__PURE__*/(() => {\n  (function (StateEnum) {\n    StateEnum[StateEnum[\"MENU\"] = 0] = \"MENU\";\n    StateEnum[StateEnum[\"PLAYING\"] = 1] = \"PLAYING\";\n    StateEnum[StateEnum[\"END\"] = 2] = \"END\";\n  })(StateEnum || (StateEnum = {}));\n\n  return StateEnum;\n})();","map":null,"metadata":{},"sourceType":"module"}

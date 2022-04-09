@@ -1,0 +1,42 @@
+
+<div *ngIf="state.value === StateEnum.MENU">
+    <h1>{{title}}</h1>
+    <h2>Play to discover the nice person sleeping inside you !</h2>
+    <button type="button" (click)="start()" [disabled]="!startable">
+        <span class="name">Start !</span>
+    </button>
+</div>
+
+<div *ngIf="state.value === StateEnum.PLAYING">
+    <h1>{{title}}</h1>
+    <div>
+        <span>Question {{questionPublicIndex}}/{{count}}</span>
+    </div>
+    <div class="button-container">
+        <h2>{{currentQuestion?.text}}</h2>
+        <ul class="questions">
+            <li *ngFor="let option of currentQuestion?.option;let i = index">
+                <button type="button" (click)="onSelect(option)"
+                    [class.selected]="selectedOption(currentQuestion) && option.value === selectedOption(currentQuestion).value">
+                    <span class="badge">{{i + 1}}</span>
+                    <span class="name">{{option.value}}</span>
+                </button>
+            </li>
+        </ul>
+
+        <button type="button" (click)="previous()" [disabled]="questionPublicIndex < 2">
+            <span class="name">< Previous question</span>
+        </button>
+
+        <button type="button" (click)="next()" [disabled]="!selectedOption(currentQuestion)">
+            <span class="name">Next question ></span>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="state.value === StateEnum.END">
+    <app-result [answers]="questions"></app-result>
+     <button type="button" (click)="back()">
+        <span class="name">Back</span>
+    </button>
+</div>
