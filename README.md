@@ -18,3 +18,6 @@ In the backend folder :
 npm i
 npm run start
 ```
+
+
+Open your browser at http://localhost:4200
